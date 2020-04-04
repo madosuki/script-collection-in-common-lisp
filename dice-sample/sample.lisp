@@ -1,8 +1,6 @@
 (ql:quickload :cl-ppcre)
 (ql:quickload :ironclad)
 
-(deftype in-name () `(integer 1, 1))
-
 (defun dice (dice-num max-num)
   (labels ((dice-function (d-n m-num &optional (result nil) (count 0))
              (if (= count d-n)
@@ -70,7 +68,4 @@
 
 (defun main ()
   (let ((sample-text "!20d100 !2D1000 desu"))
-    (print (apply-dice sample-text))
-    (let ((sample-type 0))
-      (typecase sample-type
-        (in-name (print 'in-name))))))
+    (print (apply-dice sample-text))))
