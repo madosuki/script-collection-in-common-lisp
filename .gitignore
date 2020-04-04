@@ -15,3 +15,8 @@
 *.sx32fsl
 *.wx64fsl
 *.wx32fsl
+
+.DS_Store
+._*
+
+Thumbs.db
