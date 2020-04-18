@@ -1,0 +1,15 @@
+(defun qsort (l)
+  (let ((x (car l))
+        (xs (cdr l)))
+    (labels ((smaller ()
+               (qsort (remove-if-not #'(lambda (e) (<= e x)) xs)))
+             (lager ()
+               (qsort (remove-if-not #'(lambda (e) (> e x)) xs))))
+      (cond ((null l)
+             nil)
+            (t
+             (concatenate 'list (smaller) (list x) (lager)))))))
+
+(defun main ()
+  (let ((tmp (list 100 3 9 1 6 0 28 24 128 96)))
+    (print (qsort tmp))))
